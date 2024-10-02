@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="ReelYug - Short time, Big Impact. Premium short video advertising services.">
+    <meta name="keywords" content="ReelYug, Short Video Ads, Animation Services, Video Marketing, Shimla Startup">
+    <meta name="author" content="ReelYug">
+    
+  
+    
+    <title>ReelYug | Short time, Big Impact</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="logo">ReelYug</div>
+        <nav>
+            <ul>
+                <li><a href="#combined-form">Services</a></li>
+                <li><a href="#about">About Us</a></li>
+                <li><a href="#reviews">Reviews</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="hero">
+        <div class="hero-content">
+            <h1>Short time, Big Impact</h1>
+            <p>Delivering premium short video advertisements tailored to your brand.</p>
+            <button onclick="scrollToServices()">Get Started</button>
+        </div>
+    </section>
+
+
+<!-- Combined Form Section -->
+<section id="combined-form">
+    <h2>Let's Start Your Project</h2>
+    <p>Answer a few quick questions to get started.</p>
+
+    <!-- Progress Bar -->
+    <div class="progress-bar">
+        <div class="progress" style="width: 0%;"></div>
+    </div>
+
+    <form id="project-form">
+        <!-- Step 1: Video Duration Selection -->
+        <div class="form-step active" data-step="1">
+            <p>What is the duration of the video?</p>
+            <div class="options">
+                <button type="button" onclick="selectOption('duration', '5 sec')">5 sec</button>
+                <button type="button" onclick="selectOption('duration', '10 sec')">10 sec</button>
+                <button type="button" onclick="selectOption('duration', '15 sec')">15 sec</button>
+                <button type="button" onclick="selectOption('duration', '30 sec')">30 sec</button>
+                <button type="button" onclick="selectOption('duration', '45 sec')">45 sec</button>
+                <button type="button" onclick="selectOption('duration', '1 min')">1 min</button>
+            </div>
+        </div>
+
+        <!-- Step 2: Visual Style Selection -->
+        <div class="form-step" data-step="2">
+            <p>What type of visuals do you want?</p>
+            <div class="options">
+                <button type="button" onclick="selectOption('visuals', 'Actors')">Actors</button>
+                <button type="button" onclick="selectOption('visuals', 'Cinematic Shots')">Cinematic Shots</button>
+                <button type="button" onclick="selectOption('visuals', 'Animation')">Animation</button>
+            </div>
+        </div>
+
+        <!-- Step 3: Voiceover Selection -->
+        <div class="form-step" data-step="3">
+            <p>What type of voiceover do you prefer?</p>
+            <div class="options">
+                <button type="button" onclick="selectOption('voiceover', 'AI Voiceover')">AI Voiceover</button>
+                <button type="button" onclick="selectOption('voiceover', 'Human Voiceover')">Human Voiceover</button>
+                <button type="button" onclick="selectOption('voiceover', 'Product Name Song')">Product Name Song</button>
+            </div>
+        </div>
+
+        <!-- Step 4: User Type Selection -->
+        <div class="form-step" data-step="4">
+            <p>Are you an:</p>
+            <div class="options">
+                <button type="button" onclick="selectOption('userType', 'Individual')">Individual</button>
+                <button type="button" onclick="selectOption('userType', 'Influencer')">Influencer</button>
+                <button type="button" onclick="selectOption('userType', 'Startup')">Startup</button>
+                <button type="button" onclick="selectOption('userType', 'Small Business')">Small Business</button>
+                <button type="button" onclick="selectOption('userType', 'Company')">Company</button>
+            </div>
+        </div>
+
+<!-- Step 5: Industry Selection -->
+<div class="form-step" data-step="5">
+    <p>Which industry do you work in?</p>
+    <div class="options">
+        <button type="button" onclick="selectOption('industry', 'Technology')">Technology</button>
+        <button type="button" onclick="selectOption('industry', 'Healthcare')">Healthcare</button>
+        <button type="button" onclick="selectOption('industry', 'Retail')">Retail</button>
+        <button type="button" onclick="selectOption('industry', 'Education')">Education</button>
+        <button type="button" onclick="selectOption('industry', 'Finance')">Finance</button>
+        <button type="button" onclick="selectOption('industry', 'Entertainment')">Entertainment</button>
+        <button type="button" onclick="selectOption('industry', 'Travel')">Travel</button>
+        <button type="button" onclick="selectOption('industry', 'Food')">Food</button>
+        <button type="button" onclick="selectOption('industry', 'Manufacturing')">Manufacturing</button>
+        <button type="button" onclick="selectOption('industry', 'Transportation')">Transportation</button>
+        <button type="button" onclick="selectOption('industry', 'Construction')">Construction</button>
+        <button type="button" onclick="selectOption('industry', 'Real Estate')">Real Estate</button>
+        <button type="button" onclick="selectOption('industry', 'Telecommunications')">Telecommunications</button>
+        <button type="button" onclick="selectOption('industry', 'Insurance')">Insurance</button>
+        <button type="button" onclick="selectOption('industry', 'Marketing')">Marketing</button>
+        <button type="button" onclick="selectOption('industry', 'Advertising')">Advertising</button>
+        <button type="button" onclick="selectOption('industry', 'Consulting')">Consulting</button>
+        <button type="button" onclick="selectOption('industry', 'Legal')">Legal</button>
+        <button type="button" onclick="selectOption('industry', 'Non-Profit')">Non-Profit</button>
+        <button type="button" onclick="selectOption('industry', 'Hospitality')">Hospitality</button>
+        <button type="button" onclick="selectOption('industry', 'Pharmaceuticals')">Pharmaceuticals</button>
+        <button type="button" onclick="selectOption('industry', 'Agriculture')">Agriculture</button>
+        <button type="button" onclick="selectOption('industry', 'Energy')">Energy</button>
+        <button type="button" onclick="selectOption('industry', 'Media')">Media</button>
+        <button type="button" onclick="selectOption('industry', 'E-commerce')">E-commerce</button>
+        <button type="button" onclick="selectOption('industry', 'Fashion')">Fashion</button>
+        <button type="button" onclick="selectOption('industry', 'Gaming')">Gaming</button>
+        <button type="button" onclick="selectOption('industry', 'Fitness')">Fitness</button>
+        <button type="button" onclick="selectOption('industry', 'Events')">Events</button>
+        <button type="button" onclick="selectOption('industry', 'Art & Culture')">Art & Culture</button>
+        <button type="button" onclick="selectOption('industry', 'Automotive')">Automotive</button>
+        <button type="button" onclick="selectOption('industry', 'Beauty & Cosmetics')">Beauty & Cosmetics</button>
+        <button type="button" onclick="selectOption('industry', 'Home & Garden')">Home & Garden</button>
+        <button type="button" onclick="showOtherIndustryInput()">Other</button>
+        <div id="other-industry-input" style="display:none;">
+            <input type="text" id="other-industry" placeholder="Type your industry here..." oninput="selectOtherIndustry()">
+            <button type="button" onclick="submitOtherIndustry()">Submit Industry</button>
+        </div>
+    </div>
+</div>
+
+
+
+
+        <!-- Step 6: Budget Selection -->
+        <div class="form-step" data-step="6">
+            <p>What's your budget for this project? (in Rupees)</p>
+            <div class="options">
+                <button type="button" onclick="selectOption('budget', 'Less than ₹10,000')">Less than ₹10,000</button>
+                <button type="button" onclick="selectOption('budget', '₹10,000 - ₹25,000')">₹10,000 - ₹25,000</button>
+                <button type="button" onclick="selectOption('budget', '₹25,000 - ₹50,000')">₹25,000 - ₹50,000</button>
+                <button type="button" onclick="selectOption('budget', '₹50,000 - ₹1,00,000')">₹50,000 - ₹1,00,000</button>
+                <button type="button" onclick="selectOption('budget', 'More than ₹1,00,000')">More than ₹1,00,000</button>
+            </div>
+        </div>
+
+        <!-- Step 7: Timeline Selection -->
+        <div class="form-step" data-step="7">
+            <p>When do you need the ad ready by?</p>
+            <div class="options">
+                <button type="button" onclick="selectOption('timeline', '1 Week')">1 Week</button>
+                <button type="button" onclick="selectOption('timeline', '2 Weeks')">2 Weeks</button>
+                <button type="button" onclick="selectOption('timeline', '1 Month')">1 Month</button>
+                <button type="button" onclick="selectOption('timeline', '2 Months')">2 Months</button>
+                <button type="button" onclick="selectOption('timeline', 'More than 2 Months')">More than 2 Months</button>
+            </div>
+        </div>
+
+<!-- Step 8: Individual/Company Name -->
+<div class="form-step" data-step="8">
+    <p>Please enter your name (Individual/Company):</p>
+    <input type="text" id="name" placeholder="Your name" required>
+    <button type="button" onclick="continueToSubmit()">Continue</button>
+</div>
+
+        <!-- Step 9: Submit -->
+        <div class="form-step" data-step="9">
+            <p>All set! Ready to submit your information?</p>
+            <button type="button" onclick="submitForm()">Submit</button>
+        </div>
+    </form>
+</section>
+
+
+
+
+    
+    <!-- Placeholder Section for Future Videos -->
+    <section id="about">
+        <h2>About ReelYug</h2>
+        <p>At ReelYug, we craft powerful video stories for your brand in the shortest time possible. Whether you're looking for animation, live-action footage, or a custom product song, we deliver it all, leaving a big impact.</p>
+    </section>
+
+<!-- Reviews Section -->
+<section id="reviews">
+    <h2>What our clients say</h2>
+    <div class="reviews-slider">
+        <div class="review active">
+            <p>"ReelYug helped us create a stunning video in no time!"</p>
+            <strong>- Abhishek Shukla</strong>
+        </div>
+        <div class="review">
+            <p>"Our product launch was a success thanks to ReelYug's professional team."</p>
+            <strong>- Sakshi Singh</strong>
+        </div>
+        <div class="review">
+            <p>"Exceptional service and creativity. Highly recommended!"</p>
+            <strong>- Client</strong>
+        </div>
+        <div class="review">
+            <p>"The team at ReelYug transformed our ideas into a captivating visual story."</p>
+            <strong>- Anjali Verma</strong>
+        </div>
+        <div class="review">
+            <p>"Fast, efficient, and beautifully crafted videos. We loved the final product!"</p>
+            <strong>- Rajesh Kumar</strong>
+        </div>
+        <div class="review">
+            <p>"Working with ReelYug was a delightful experience. Highly professional!"</p>
+            <strong>- Priya Singh</strong>
+        </div>
+        <div class="review">
+            <p>"Our promotional video exceeded expectations! Thank you, ReelYug!"</p>
+            <strong>- Amit Sharma</strong>
+        </div>
+        <div class="review">
+            <p>"The creativity and attention to detail were outstanding. Will work with them again!"</p>
+            <strong>- Neha Gupta</strong>
+        </div>
+        <div class="review">
+            <p>"ReelYug’s team was attentive and responsive throughout the process!"</p>
+            <strong>- Sameer Joshi</strong>
+        </div>
+        <div class="review">
+            <p>"Great experience overall. Our video has received a lot of positive feedback!"</p>
+            <strong>- Kavita Reddy</strong>
+        </div>
+        <div class="review">
+            <p>"They understood our vision and brought it to life perfectly!"</p>
+            <strong>- Deepak Choudhary</strong>
+        </div>
+    </div>
+</section>
+
+
+
+
+
+
+
+
+
+<div class="co-founder-section">
+    <div class="co-founder-card">
+        <img src="chiragPic.jpg" alt="Chirag Sharma" class="co-founder-image">
+        <div class="co-founder-info">
+            <h3>Chirag Sharma</h3>
+            <p>Award-winning short documentary creator and animator. Passionate about storytelling through visuals.</p>
+        </div>
+    </div>
+</div>
+
+
+
+<!-- Footer -->
+<footer>
+    <p>© 2024 ReelYug. All rights reserved.</p>
+    <p>Follow us:</p>
+    <div class="social-icons">
+        <a href="https://instagram.com/__._chirag_.__" target="_blank">
+            <img src="instagram.png" alt="Instagram">
+        </a>
+        <!-- Add more social media links if available -->
+    </div>
+</footer>
+
+
+    <script src="script.js"></script>
+</body>
+</html>
