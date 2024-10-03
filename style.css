@@ -1,303 +1,284 @@
-/* General Styles */
+/* =========================
+   CSS Variables for Easy Customization
+   ========================= */
+   :root {
+    /* Color Palette */
+    --primary-color: #ff66b2; /* Pink Gradient Start */
+    --secondary-color: #66b2ff; /* Blue Gradient End */
+    --background-color: #121212; /* Dark Background */
+    --text-color: #e0e0e0; /* Light Text for Contrast */
+    --accent-color: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+
+    /* Font Settings */
+    --font-primary: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    --font-secondary: 'Montserrat', sans-serif;
+
+    /* Image Sizes */
+    --logo-width: 60px;
+    --hero-logo-width: 150px;
+    --footer-logo-width: 100px;
+    --co-founder-logo-width: 50px;
+
+    /* Transition Settings */
+    --transition-speed: 0.3s;
+
+    /* Button Customization */
+    --button-padding: 0.75rem 1.5rem;
+    --button-border-radius: 25px;
+    --button-font-size: 1rem;
+    --button-font-weight: 600;
+    --button-transition: all 0.3s ease;
+    --button-box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    --button-hover-box-shadow: 0 6px 10px rgba(0, 0, 0, 0.3);
+    --button-gradient: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+    --button-hover-gradient: linear-gradient(45deg, var(--secondary-color), var(--primary-color));
+    --button-text-color: #ffffff;
+    --button-hover-text-color: #ffffff;
+}
+
+/* =========================
+   Global Styles
+   ========================= */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Arial', sans-serif;
+    font-family: var(--font-primary);
 }
 
 body {
-    background-color: #f4f4f4;
-    color: #333;
+    background-color: var(--background-color);
+    color: var(--text-color);
     line-height: 1.6;
+    transition: background-color var(--transition-speed), color var(--transition-speed);
 }
 
-/* Header */
+/* =========================
+   Header Styles
+   ========================= */
 header {
     display: flex;
     justify-content: space-between;
-    padding: 1rem;
-    background-color: #222;
-    color: #fff;
+    align-items: center;
+    padding: 1rem 2rem;
+    background-color: #1e1e1e;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
 }
 
-header .logo {
-    font-size: 1.5rem;
-    font-weight: bold;
+.logo img {
+    width: var(--logo-width);
+    height: auto;
+    transition: width var(--transition-speed), height var(--transition-speed);
 }
 
 nav ul {
     list-style: none;
     display: flex;
-    gap: 1rem;
+    gap: 1.5rem;
 }
 
 nav a {
-    color: #fff;
+    color: var(--text-color);
     text-decoration: none;
+    font-weight: 500;
+    position: relative;
+    transition: color var(--transition-speed);
 }
 
-/* Hero Section */
-#hero {
-    background-color: #222;
-    color: white;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
+nav a::after {
+    content: '';
+    display: block;
+    width: 0%;
+    height: 2px;
+    background: var(--primary-color);
+    transition: width var(--transition-speed);
 }
 
-#hero h1 {
-    font-size: 3rem;
-    margin-bottom: 1rem;
+nav a:hover::after {
+    width: 100%;
 }
 
-#hero p {
-    font-size: 1.2rem;
-}
-
-#hero button {
-    padding: 0.75rem 1.5rem;
-    background-color: #ff6600;
-    color: white;
-    border: none;
-    cursor: pointer;
-}
-
-#hero button:hover {
-    background-color: #e65c00;
-}
-
-/* Services Section */
-#services {
-    padding: 2rem;
-    text-align: center;
-}
-
-.service-options {
-    display: flex;
-    justify-content: center;
-    gap: 1rem;
-    margin-top: 1rem;
-}
-
-.service-options button {
-    padding: 0.75rem 1.5rem;
-    background-color: #333;
-    color: white;
-    border: none;
-    cursor: pointer;
-}
-
-.service-options button:hover {
-    background-color: #555;
-}
-
-/* Reviews Section */
-#reviews {
-    background-color: #fff;
-    padding: 2rem;
-    text-align: center;
-}
-
-.reviews-slider p {
-    font-size: 1.2rem;
-    margin-bottom: 1rem;
-}
-
-/* Contact Section */
-#contact {
-    padding: 2rem;
-}
-
-#contact form {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    width: 300px;
-    margin: 0 auto;
-}
-
-#contact input, #contact select {
-    padding: 0.5rem;
-    border: 1px solid #ccc;
-}
-
-/* Footer */
-footer {
-    background-color: #222;
-    color: white;
-    text-align: center;
-    padding: 1rem;
-    margin-top: 2rem;
-}
-
-
-
-/* Responsive Design for Mobile */
-@media only screen and (max-width: 768px) {
+@media (max-width: 768px) {
     header {
         flex-direction: column;
-        align-items: center;
+        padding: 1rem;
     }
 
     nav ul {
         flex-direction: column;
-        gap: 0.5rem;
-    }
-
-    #hero h1 {
-        font-size: 2.5rem;
-    }
-
-    #hero p {
-        font-size: 1rem;
-    }
-
-    .service-options {
-        flex-direction: column;
-        gap: 0.75rem;
-    }
-
-    #contact form {
-        width: 90%;
+        gap: 1rem;
     }
 }
 
-/* Mobile Swipe-Like Navigation for Services */
-@media only screen and (max-width: 768px) {
-    #services {
-        padding: 1rem;
-        overflow-x: auto;
-        white-space: nowrap;
-    }
-
-    .service-options {
-        display: inline-flex;
-        overflow-x: scroll;
-        width: 100%;
-    }
-
-    .service-options button {
-        display: inline-block;
-        min-width: 150px;
-        white-space: normal;
-        margin-right: 10px;
-    }
-}
-
-
-/* Add hover effect for buttons */
+/* =========================
+   Enhanced Button Styles
+   ========================= */
 button {
-    transition: background-color 0.3s ease, transform 0.2s ease;
+    padding: var(--button-padding);
+    border: none;
+    border-radius: var(--button-border-radius);
+    font-size: var(--button-font-size);
+    font-weight: var(--button-font-weight);
+    color: var(--button-text-color);
+    background: var(--button-gradient);
+    cursor: pointer;
+    transition: var(--button-transition);
+    box-shadow: var(--button-box-shadow);
+    display: inline-block;
+    text-align: center;
 }
 
 button:hover {
-    background-color: #ff6600;
-    transform: scale(1.05);
+    background: var(--button-hover-gradient);
+    color: var(--button-hover-text-color);
+    transform: translateY(-2px);
+    box-shadow: var(--button-hover-box-shadow);
 }
 
-/* Hero section text fade-in effect */
-#hero h1, #hero p {
+button:active {
+    transform: translateY(0);
+    box-shadow: var(--button-box-shadow);
+}
+
+button:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(255, 102, 178, 0.5); /* Pink focus ring */
+}
+
+/* Primary Buttons */
+button.primary {
+    /* Inherits general button styles */
+}
+
+/* Secondary Buttons */
+button.secondary {
+    background: #555;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    color: var(--button-text-color);
+    transition: var(--button-transition);
+}
+
+button.secondary:hover {
+    background: #777;
+    transform: translateY(-2px);
+    box-shadow: var(--button-hover-box-shadow);
+}
+
+/* Submit Button */
+button.submit-btn {
+    background: var(--button-gradient);
+    color: var(--button-text-color);
+    box-shadow: var(--button-box-shadow);
+}
+
+button.submit-btn:hover {
+    background: var(--button-hover-gradient);
+    color: var(--button-hover-text-color);
+    transform: translateY(-2px);
+    box-shadow: var(--button-hover-box-shadow);
+}
+
+/* Icon Buttons (e.g., social media) */
+button.icon-btn {
+    padding: 0.5rem;
+    background: transparent;
+    box-shadow: none;
+    color: var(--button-text-color);
+}
+
+button.icon-btn:hover {
+    background: rgba(255, 255, 255, 0.1);
+    transform: scale(1.1);
+}
+
+/* =========================
+   Hero Section Styles
+   ========================= */
+#hero {
+    background: var(--background-color);
+    color: var(--text-color);
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 0 1rem;
+    margin-top: 60px; /* To offset fixed header */
+}
+
+.hero-logo img {
+    width: var(--hero-logo-width);
+    height: auto;
+    margin-bottom: 1.5rem;
+    animation: fadeInUp 1s ease-out forwards;
     opacity: 0;
     transform: translateY(-20px);
-    transition: opacity 1s ease, transform 1s ease;
 }
 
-#hero h1 {
-    transition-delay: 0.3s;
+.hero-content h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    background: var(--accent-color);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
-#hero p {
-    transition-delay: 0.5s;
+.hero-content p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
 }
 
-/* Trigger the animations on load */
-body.loaded #hero h1, body.loaded #hero p {
-    opacity: 1;
-    transform: translateY(0);
+#hero button {
+    /* Inherits general button styles */
 }
-/* Co-founder Section */
-#cofounder {
-    padding: 2rem;
-    background-color: #f4f4f4;
+
+/* =========================
+   Combined Form Section Styles
+   ========================= */
+#combined-form {
+    padding: 4rem 2rem;
+    background-color: #1e1e1e;
+    color: var(--text-color);
     text-align: center;
 }
 
-.cofounder-content {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    gap: 2rem;
-    flex-wrap: wrap;
+#combined-form h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
 }
 
-.cofounder-photo {
-    background-color: #ccc;
-    width: 200px;
-    height: 200px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+#combined-form p {
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
 }
 
-.cofounder-photo p {
-    color: #666;
+.progress-bar {
+    width: 100%;
+    background-color: #333;
+    height: 8px;
+    border-radius: 4px;
+    margin-bottom: 2rem;
 }
 
-.cofounder-bio {
-    max-width: 500px;
+.progress {
+    height: 100%;
+    background: var(--accent-color);
+    width: 0%;
+    border-radius: 4px;
+    transition: width var(--transition-speed);
 }
 
-@media only screen and (max-width: 768px) {
-    .cofounder-content {
-        flex-direction: column;
-    }
-}
-/* Reviews Slider */
-.reviews-slider {
-    position: relative;
-    width: 80%;
+form#project-form {
+    max-width: 600px;
     margin: 0 auto;
-    overflow: hidden;
 }
 
-.review {
-    display: none;
-    text-align: center;
-    padding: 1rem;
-}
-
-.review.active {
-    display: block;
-    animation: fadeIn 1s ease-in-out;
-}
-
-@keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
-}
-/* Social Icons */
-.social-icons {
-    display: flex;
-    justify-content: center;
-    margin-top: 1rem;
-}
-
-.social-icons a {
-    margin: 0 0.5rem;
-}
-
-.social-icons img {
-    width: 32px;
-    height: 32px;
-}
-/* Multi-step Form */
 .form-step {
     display: none;
-    text-align: center;
 }
 
 .form-step.active {
@@ -313,134 +294,278 @@ body.loaded #hero h1, body.loaded #hero p {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 0.5rem;
+    gap: 1rem;
 }
 
 .options button {
-    padding: 0.5rem 1rem;
-    background-color: #333;
-    color: #fff;
-    border: none;
-    cursor: pointer;
+    /* Inherits general button styles */
 }
 
 .options button:hover {
-    background-color: #555;
+    /* Inherits hover styles */
 }
-/* Progress Bar Styles */
-.progress-bar {
+
+input[type="text"], input[type="email"], select, textarea {
     width: 100%;
-    background-color: #f3f3f3;
-    height: 5px;
+    padding: 0.75rem;
+    border: 1px solid #555;
     border-radius: 5px;
-    margin-bottom: 20px;
+    background-color: #2c2c2c;
+    color: var(--text-color);
+    margin-bottom: 1rem;
+    transition: border-color var(--transition-speed), background-color var(--transition-speed), color var(--transition-speed);
 }
 
-.progress {
-    height: 100%;
-    background-color: #4CAF50; /* Green */
-    width: 0%; /* Initial width */
-    border-radius: 5px;
-    transition: width 0.3s ease;
-}
-/* General styles */
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f7f7f7; /* Light background color for contrast */
+input[type="text"]:focus, input[type="email"]:focus, select:focus, textarea:focus {
+    border-color: var(--primary-color);
+    outline: none;
+    background-color: #3a3a3a;
 }
 
-/* Button styles */
-button {
-    background-color: #007BFF; /* Primary color */
-    color: white; /* Text color */
-    border: none; /* Remove border */
-    border-radius: 5px; /* Rounded corners */
-    padding: 10px 20px; /* Padding for button */
-    margin: 5px; /* Space between buttons */
-    cursor: pointer; /* Pointer cursor on hover */
-    font-size: 16px; /* Font size */
-    transition: background-color 0.3s, transform 0.2s; /* Transition effects */
-}
+@media (max-width: 768px) {
+    #combined-form {
+        padding: 2rem 1rem;
+    }
 
-/* Button hover effect */
-button:hover {
-    background-color: #0056b3; /* Darker shade on hover */
-    transform: translateY(-2px); /* Slight lift effect */
-}
-
-/* Input field styles */
-input[type="text"] {
-    width: 100%; /* Full width */
-    padding: 10px; /* Padding inside the input */
-    border: 1px solid #ccc; /* Light border */
-    border-radius: 5px; /* Rounded corners */
-    font-size: 16px; /* Font size */
-    transition: border-color 0.3s; /* Transition for border color */
-    margin-top: 5px; /* Space above input */
-}
-
-/* Input field focus effect */
-input[type="text"]:focus {
-    border-color: #007BFF; /* Change border color on focus */
-    outline: none; /* Remove default outline */
-}
-
-/* Responsive styles */
-@media (max-width: 600px) {
-    button {
-        width: 100%; /* Full width for small screens */
-        margin: 10px 0; /* More space between buttons */
+    .options button {
+        width: 100%;
     }
 }
-/* Co-Founder Section Styles */
+
+/* =========================
+   About Section Styles
+   ========================= */
+#about {
+    padding: 4rem 2rem;
+    background-color: #121212;
+    color: var(--text-color);
+    text-align: center;
+}
+
+#about h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    background: var(--accent-color);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+#about p {
+    font-size: 1.1rem;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* =========================
+   Reviews Section Styles
+   ========================= */
+#reviews {
+    padding: 4rem 2rem;
+    background-color: #1e1e1e;
+    color: var(--text-color);
+    text-align: center;
+}
+
+#reviews h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    background: var(--accent-color);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.reviews-slider {
+    position: relative;
+    width: 100%;
+    max-width: 800px;
+    margin: 2rem auto;
+    overflow: hidden;
+}
+
+.review {
+    display: none;
+    padding: 1rem;
+    font-size: 1.1rem;
+    border-left: 4px solid var(--accent-color);
+    background-color: #2c2c2c;
+    margin-bottom: 1rem;
+    border-radius: 5px;
+}
+
+.review.active {
+    display: block;
+    animation: fadeIn 1s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* =========================
+   Co-Founder Section Styles
+   ========================= */
 .co-founder-section {
-    display: flex;
-    justify-content: center; /* Center the card */
-    margin: 20px 0; /* Space around the section */
+    padding: 4rem 2rem;
+    background-color: #121212;
+    text-align: center;
 }
 
 .co-founder-card {
-    background-color: #ffffff; /* White background */
-    border-radius: 10px; /* Rounded corners */
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    background-color: #1e1e1e;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
     display: flex;
-    align-items: center; /* Center items vertically */
-    padding: 10px; /* Padding around the content */
-    max-width: 300px; /* Maximum width */
-    width: 100%; /* Full width on small screens */
-    transition: transform 0.2s; /* Transition for hover effect */
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    max-width: 600px;
+    margin: 0 auto;
+    transition: transform var(--transition-speed);
 }
 
 .co-founder-card:hover {
-    transform: translateY(-5px); /* Lift effect on hover */
+    transform: translateY(-5px);
 }
 
 .co-founder-image {
-    width: 60px; /* Small image size */
-    height: 60px; /* Small image size */
-    border-radius: 50%; /* Circular image */
-    margin-right: 15px; /* Space between image and text */
+    width: var(--co-founder-logo-width);
+    height: var(--co-founder-logo-width);
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 1.5rem;
+    transition: width var(--transition-speed), height var(--transition-speed);
 }
 
 .co-founder-info {
-    flex: 1; /* Allow text to take available space */
+    text-align: left;
 }
 
 .co-founder-info h3 {
-    margin: 0; /* Remove default margin */
-    font-size: 18px; /* Font size for name */
-    color: #333; /* Dark color for text */
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+    color: var(--primary-color);
 }
 
 .co-founder-info p {
-    margin: 5px 0 0; /* Space above and below paragraph */
-    font-size: 14px; /* Smaller font size for description */
-    color: #666; /* Lighter color for description text */
+    font-size: 1rem;
+    color: #b0b0b0;
 }
 
-/* Responsive styles */
-@media (max-width: 600px) {
+@media (max-width: 768px) {
     .co-founder-card {
-        max-width: 90%; /* Use more width on small screens */
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .co-founder-image {
+        margin-right: 0;
+        margin-bottom: 1rem;
+    }
+
+    .co-founder-info {
+        text-align: center;
+    }
+}
+
+/* =========================
+   Footer Styles
+   ========================= */
+footer {
+    background-color: #1e1e1e;
+    color: var(--text-color);
+    text-align: center;
+    padding: 2rem 1rem;
+}
+
+.footer-logo img {
+    width: var(--footer-logo-width);
+    height: auto;
+    margin-bottom: 1rem;
+}
+
+footer p {
+    margin-bottom: 0.5rem;
+    font-size: 0.9rem;
+}
+
+.social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.social-icons a img {
+    width: 32px;
+    height: 32px;
+    transition: transform var(--transition-speed);
+}
+
+.social-icons a:hover img {
+    transform: scale(1.1);
+}
+
+/* =========================
+   Image Size Management
+   ========================= */
+/* Adjust the size of each image by modifying the CSS variables */
+.logo img {
+    width: var(--logo-width);
+}
+
+.hero-logo img {
+    width: var(--hero-logo-width);
+}
+
+.footer-logo img {
+    width: var(--footer-logo-width);
+}
+
+.co-founder-image {
+    width: var(--co-founder-logo-width);
+    height: var(--co-founder-logo-width);
+}
+
+/* =========================
+   Responsive Design Enhancements
+   ========================= */
+@media (max-width: 600px) {
+    .hero-content h1 {
+        font-size: 2.2rem;
+    }
+
+    .hero-content p {
+        font-size: 1rem;
+    }
+
+    button {
+        width: 100%;
+        padding: 0.75rem;
+        font-size: 1rem;
+    }
+
+    .co-founder-card {
+        padding: 1rem;
+    }
+
+    .co-founder-info h3 {
+        font-size: 1.3rem;
+    }
+
+    .co-founder-info p {
+        font-size: 0.9rem;
+    }
+
+    #combined-form, #about, #reviews, .co-founder-section {
+        padding: 2rem 1rem;
+    }
+
+    .reviews-slider {
+        max-width: 100%;
+    }
+
+    .form-step p, .form-step button {
+        font-size: 1rem;
     }
 }
